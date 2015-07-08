@@ -21,8 +21,9 @@ var fn = {
         else
             window.location.href = "#home";
         
-        $("#reg div[data-role = footer] a").click(mc.start)//funcion como parámetro no lleva parentesis
-        $("#reg ul[data-role = listview] a").click(fn.registrarClick)
+       // $("#reg div[data-role = footer] a").click(mc.start)//funcion como parámetro no lleva parentesis
+        $("#reg div[data-role = footer] a").click(fn.registrarClick);
+        $("#btnFoto").click(mc.start);
     },
     
     deviceready: function(){
@@ -40,12 +41,11 @@ var fn = {
         var foto = $("#fotoTomada").attr("rel");
         
         if(nom != "" && mail != "" && tel != "" && foto != undefined && foto != '')
-            alert(nom + " - " + mail + " - " + tel);
+            navigator.notification.alert(nom + " - " + mail + " - " + tel);
         else
-            navigator.notification.alert("Todos los campos son requeridos.", null,"Registro","Acetar");
+            navigator.notification.alert("Todos los campos son requeridos.", null,"Registro","Aceptar");
         
     }
-    
 }
 
 $(fn.deviceready);
